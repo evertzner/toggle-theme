@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'selector'
+      };
+    </script>
+    <title>Toggle Theme</title>
+  </head>
+  <body
+    class="flex justify-center items-center h-screen bg-white dark:bg-gray-500 transition-all [transition-duration:1s] p-2"
+  >
+    <button
+      id="toggleTheme"
+      class="flex border-2 border-transparent rounded-full relative h-8 w-16 bg-[url('https://i.ibb.co/PhqdmC2/pngwing-com-6.png')] dark:bg-[url('https://i.ibb.co/P1FXwHF/pngwing-com-7.png')] bg-cover bg-center dark:bg-[#0b1223] transition-all [transition-duration:1s]"
+    >
+      <img
+        class="h-7 absolute left-0 dark:translate-x-[32px] dark:rotate-180 transition-all [transition-duration:1s] dark:opacity-0"
+        src="https://i.ibb.co/MGnr7t8/pngwing-com.png"
+        alt="sun"
+      />
+      <img
+        class="h-7 absolute left-0 dark:translate-x-[32px] dark:rotate-180 transition-all [transition-duration:1s] opacity-0 dark:opacity-100"
+        src="https://i.ibb.co/TtBZgPs/pngwing-com-1.png"
+        alt="moon"
+      />
+    </button>
+    <script>
+      const html = document.querySelector('html');
+      document.querySelector('#toggleTheme').addEventListener('click', () => {
+        if (html.classList.contains('light')) {
+          html.classList.remove('light');
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+          html.classList.add('light');
+        }
+      });
+    </script>
+  </body>
+</html>
